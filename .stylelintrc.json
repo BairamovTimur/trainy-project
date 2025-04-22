@@ -1,0 +1,16 @@
+{
+	"ignoreFiles": ["dist/**/*.css"],
+	"extends": ["stylelint-config-standard", "stylelint-config-idiomatic-order"],
+	"plugins": ["stylelint-order", "stylelint-prettier"],
+	"rules": {
+		"prettier/prettier": true,
+		"no-duplicate-selectors": true,
+		"color-hex-length": "short",
+		"color-named": "never",
+		"selector-attribute-quotes": "always",
+		"font-weight-notation": "numeric",
+		"comment-whitespace-inside": "always",
+		"comment-empty-line-before": "always",
+		"selector-pseudo-element-colon-notation": "single"
+	}
+}

@@ -1,0 +1,20 @@
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react-swc';
+import tsconfigPaths from 'vite-tsconfig-paths';
+
+export default defineConfig({
+	plugins: [react(), tsconfigPaths()],
+	server: {
+		open: true,
+		port: 3000
+	},
+	resolve: {
+		alias: {
+			'@': `/src`,
+			'/src': '/src'
+		}
+	},
+	build: {
+		outDir: 'dist'
+	}
+});
