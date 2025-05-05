@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { ROUTES } from '@/shared/routes';
 import {
 	CalculatorOutlined,
@@ -7,7 +7,7 @@ import {
 	TableOutlined,
 } from '@ant-design/icons';
 
-import styles from './styles.module.css';
+import styles from './MainPage.module.css';
 
 const blocks = [
 	{

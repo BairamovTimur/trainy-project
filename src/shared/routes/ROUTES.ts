@@ -1,26 +1,19 @@
-// ... existing code ...
-export const ROOT_ROUTES = {
-	ADVANCED_COUNTER: '/advanced-counter',
-	COUNTER: '/counter',
-	EMPLOYEES: '/employees',
-	MAIN: '/',
-	TABLE: '/table',
-} as const;
+
 
 export const ROUTES = {
 	ADVANCED_COUNTER: {
-		MAIN: ROOT_ROUTES.ADVANCED_COUNTER,
+		MAIN: '/advanced-counter',
 	},
 	COUNTER: {
-		MAIN: ROOT_ROUTES.COUNTER,
+		MAIN: '/counter',
 	},
 	EMPLOYEES: {
-		MAIN: ROOT_ROUTES.EMPLOYEES,
+		MAIN: '/employees',
 	},
 	MAIN: {
-		MAIN: ROOT_ROUTES.MAIN,
+		MAIN: '/',
 	},
 	TABLE: {
-		MAIN: ROOT_ROUTES.TABLE,
+		MAIN: '/table',
 	},
 } as const;
