@@ -4,7 +4,7 @@ import styles from './CounterPage.module.css';
 
 export const CounterPage = () => (
 	<div className={styles.container}>
-		<h1>Счётчик</h1>
+		<h1 className={styles.pageTitle}>Счётчик</h1>
 		<Counter />
 	</div>
 );

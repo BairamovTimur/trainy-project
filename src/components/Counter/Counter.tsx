@@ -1,31 +1,23 @@
 import { useState } from 'react';
 import { MinusOutlined, RedoOutlined, PlusOutlined } from '@ant-design/icons';
 
+import { Button } from '../Button/Button';
+
 import styles from './Counter.module.css';
 
-interface CounterProps {
-	initialValue?: number;
-	onChange?: (value: number) => void;
-}
-
-export const Counter = ({ initialValue = 0, onChange }: CounterProps) => {
-	const [count, setCount] = useState(initialValue);
+export const Counter = () => {
+	const [count, setCount] = useState(0);
 
 	const handleIncrement = () => {
-		const newValue = count + 1;
-		setCount(newValue);
-		onChange?.(newValue);
+		setCount(count + 1);
 	};
 
 	const handleDecrement = () => {
-		const newValue = count - 1;
-		setCount(newValue);
-		onChange?.(newValue);
+		setCount(count - 1);
 	};
 
 	const handleReset = () => {
-		setCount(initialValue);
-		onChange?.(initialValue);
+		setCount(0);
 	};
 
 	return (
@@ -34,30 +26,21 @@ export const Counter = ({ initialValue = 0, onChange }: CounterProps) => {
 				{count}
 			</div>
 			<div className={styles.buttons}>
-				<button
+				<Button
 					aria-label='Уменьшить значение'
-					className={styles.button}
 					onClick={handleDecrement}
-					type='button'
 				>
 					<MinusOutlined />
-				</button>
-				<button
+				</Button>
+				<Button
 					aria-label='Увеличить значение'
-					className={styles.button}
 					onClick={handleIncrement}
-					type='button'
 				>
 					<PlusOutlined />
-				</button>
-				<button
-					aria-label='Сбросить значение'
-					className={styles.button}
-					onClick={handleReset}
-					type='button'
-				>
+				</Button>
+				<Button aria-label='Сбросить значение' onClick={handleReset}>
 					<RedoOutlined />
-				</button>
+				</Button>
 			</div>
 		</div>
 	);
