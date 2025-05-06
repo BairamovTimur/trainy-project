@@ -1,5 +1,3 @@
-
-
 export const ROUTES = {
 	ADVANCED_COUNTER: {
 		MAIN: '/advanced-counter',
