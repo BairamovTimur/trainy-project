@@ -27,18 +27,20 @@ export const Counter = () => {
 			</div>
 			<div className={styles.buttons}>
 				<Button
-					aria-label='Уменьшить значение'
+					ariaLabel='Уменьшить значение'
 					onClick={handleDecrement}
 				>
 					<MinusOutlined />
 				</Button>
 				<Button
-					aria-label='Увеличить значение'
+					ariaLabel='Увеличить значение'
 					onClick={handleIncrement}
 				>
 					<PlusOutlined />
 				</Button>
-				<Button aria-label='Сбросить значение' onClick={handleReset}>
+				<Button
+					ariaLabel='Сбросить значение'
+					onClick={handleReset}>
 					<RedoOutlined />
 				</Button>
 			</div>
