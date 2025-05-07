@@ -1,4 +1,4 @@
-import styles from './EmployeesListPage.module.css'
+import styles from './EmployeesListPage.module.css';
 
 export const EmployeesListPage = () => (
 	<div className={styles.container}>
