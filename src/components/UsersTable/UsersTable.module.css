@@ -1,0 +1,106 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 24px;
+  }
+  
+  .title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #1677ff;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  
+  .counters {
+    position: sticky;
+    top: 0;
+    background: #fff;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 24px;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  
+  .counter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .counterValue {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1677ff;
+  }
+  
+  .tableContainer {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    max-height: calc(100vh - 250px);
+    overflow-y: auto;
+  }
+  
+  .userList {
+    list-style-position: inside;
+    padding: 16px;
+    margin: 0;
+  }
+  
+  .userItem {
+    padding: 12px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .userItem:last-child {
+    border-bottom: none;
+  }
+  
+  .userLabel {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+  }
+  
+  .checkbox {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+  }
+  
+  .userName {
+    font-size: 1rem;
+    color: #333;
+  }
+  
+  @media (max-width: 700px) {
+    .container {
+      padding: 16px;
+    }
+  
+    .counters {
+      flex-direction: column;
+      gap: 12px;
+    }
+  
+    .counter {
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+    }
+  
+    .counterValue {
+      font-size: 1.25rem;
+    }
+  
+    .tableContainer {
+      max-height: calc(100vh - 350px);
+    }
+  }
