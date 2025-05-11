@@ -1,0 +1,153 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+  height: 100%;
+ 
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #1677ff;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 24px;
+  z-index: 10;
+}
+
+.counters {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.counterValue {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1677ff;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.actionButton {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  background: #1677ff;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.actionButton:hover {
+  background: #4096ff;
+}
+
+.listsContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.listContainer {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  height: calc(100vh - 250px);
+  display: flex;
+  flex-direction: column;
+}
+
+.listTitle {
+  padding: 16px;
+  margin: 0;
+  border-bottom: 1px solid #f0f0f0;
+  font-size: 1.2rem;
+  color: #1677ff;
+}
+
+.userList {
+  list-style-position: inside;
+  padding: 16px;
+  margin: 0;
+  overflow-y: auto;
+}
+
+.userItem {
+  padding: 12px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.userItem:last-child {
+  border-bottom: none;
+}
+
+.userLabel {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.checkbox {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.userName {
+  font-size: 1rem;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 16px;
+  }
+
+  .counters {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .counter {
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .listsContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .listContainer {
+    height: calc(50vh - 150px);
+  }
+}
