@@ -1,4 +1,7 @@
-import { useState, useMemo } from 'react';
+import { useMemo } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleUser, selectAll, deselectAll, selectEveryFifth } from '@/store/slices/usersSlice';
+import { RootState } from '@/store';
 import styles from './AdvancedUsersTable.module.css';
 
 const firstNames = ['Иван', 'Петр', 'Сергей', 'Алексей', 'Дмитрий', 'Андрей', 'Максим', 'Николай', 'Владимир', 'Артем'];
@@ -6,7 +9,8 @@ const lastNames = ['Иванов', 'Петров', 'Сидоров', 'Смирн
 const middleNames = ['Иванович', 'Петрович', 'Сергеевич', 'Алексеевич', 'Дмитриевич', 'Андреевич', 'Максимович', 'Николаевич', 'Владимирович', 'Артемович'];
 
 export const AdvancedUsersTable = () => {
-    const [selectedUsers, setSelectedUsers] = useState<Set<number>>(new Set());
+    const selectedUsers = useSelector((state: RootState) => state.users.selectedUsers);
+    const dispatch = useDispatch();
     
     const users = useMemo(() => {
         const result = [];
@@ -22,39 +26,19 @@ export const AdvancedUsersTable = () => {
         return result;
     }, []);
 
-
     const firstListUsers = useMemo(() => users.slice(0, 500), [users]);
     const secondListUsers = useMemo(() => users.slice(500), [users]);
 
-
     const handleSelectAll = () => {
-        const allUsers = new Set(users.map(user => user.id));
-        setSelectedUsers(allUsers);
+        dispatch(selectAll(users.map(user => user.id)));
     };
 
     const handleDeselectAll = () => {
-        setSelectedUsers(new Set());
+        dispatch(deselectAll());
     };
 
     const handleSelectEveryFifth = () => {
-        const everyFifth = new Set(
-            users
-                .filter(user => user.id % 5 === 0)
-                .map(user => user.id)
-        );
-        setSelectedUsers(everyFifth);
-    };
-
-    const handleCheckboxChange = (userId: number) => {
-        setSelectedUsers(prev => {
-            const newSelected = new Set(prev);
-            if (newSelected.has(userId)) {
-                newSelected.delete(userId);
-            } else {
-                newSelected.add(userId);
-            }
-            return newSelected;
-        });
+        dispatch(selectEveryFifth(users.map(user => user.id)));
     };
 
     const UserList = ({ users, startIndex }: { users: typeof firstListUsers, startIndex: number }) => (
@@ -68,8 +52,8 @@ export const AdvancedUsersTable = () => {
                         <label className={styles.userLabel}>
                             <input
                                 type="checkbox"
-                                checked={selectedUsers.has(user.id)}
-                                onChange={() => handleCheckboxChange(user.id)}
+                                checked={selectedUsers.includes(user.id)}
+                                onChange={() => dispatch(toggleUser(user.id))}
                                 className={styles.checkbox}
                             />
                             <span className={styles.userName}>{user.fullName}</span>
@@ -92,11 +76,11 @@ export const AdvancedUsersTable = () => {
                     </div>
                     <div className={styles.counter}>
                         <span>Выбрано пользователей:</span>
-                        <span className={styles.counterValue}>{selectedUsers.size}</span>
+                        <span className={styles.counterValue}>{selectedUsers.length}</span>
                     </div>
                     <div className={styles.counter}>
                         <span>Не выбрано пользователей:</span>
-                        <span className={styles.counterValue}>{1000 - selectedUsers.size}</span>
+                        <span className={styles.counterValue}>{1000 - selectedUsers.length}</span>
                     </div>
                 </div>
 
