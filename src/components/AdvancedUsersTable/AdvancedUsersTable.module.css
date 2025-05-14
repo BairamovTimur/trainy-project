@@ -1,15 +1,14 @@
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 24px;
-  height: 100%;
- 
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .title {
   font-size: 2rem;
   font-weight: 600;
-  color: #1677ff;
+  color: var(--color-primary);
   margin-bottom: 24px;
   text-align: center;
 }
@@ -17,10 +16,10 @@
 .header {
   position: sticky;
   top: 0;
-  background: #fff;
+  background: var(--color-white);
   padding: 16px;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-default);
   margin-bottom: 24px;
   z-index: 10;
 }
@@ -42,28 +41,29 @@
 .counterValue {
   font-size: 1.5rem;
   font-weight: 600;
-  color: #1677ff;
+  color: var(--color-primary);
 }
 
 .actions {
   display: flex;
   justify-content: center;
   gap: 16px;
+  padding-top: 16px
 }
 
 .actionButton {
   padding: 8px 16px;
   border: none;
   border-radius: 4px;
-  background: #1677ff;
-  color: #fff;
+  background: var(--color-primary);
+  color: var(--color-white);
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.2s;
 }
 
 .actionButton:hover {
-  background: #4096ff;
+  background: var(--color-primary-hover);
 }
 
 .listsContainer {
@@ -73,9 +73,9 @@
 }
 
 .listContainer {
-  background: #fff;
+  background: var(--color-white);
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-default);
   height: calc(100vh - 250px);
   display: flex;
   flex-direction: column;
@@ -84,9 +84,9 @@
 .listTitle {
   padding: 16px;
   margin: 0;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid var(--color-border);
   font-size: 1.2rem;
-  color: #1677ff;
+  color: var(--color-primary);
 }
 
 .userList {
@@ -98,7 +98,7 @@
 
 .userItem {
   padding: 12px;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid var(--color-border);
 }
 
 .userItem:last-child {
@@ -120,13 +120,10 @@
 
 .userName {
   font-size: 1rem;
-  color: #333;
+  color: var(--color-text-secondary);
 }
 
-@media (max-width: 768px) {
-  .container {
-    padding: 16px;
-  }
+@media (max-width: 700px) {
 
   .counters {
     flex-direction: column;

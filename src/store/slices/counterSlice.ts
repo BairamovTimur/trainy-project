@@ -1,74 +1,79 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface Counter {
-    id: number;
-    value: number;
-    isActive: boolean;
+	id: number;
+	isActive: boolean;
+	value: number;
 }
 
 interface CounterState {
-    counters: Counter[];
-    timerMode: 'increment' | 'decrement' | null;
+	counters: Counter[];
+	timerMode: 'increment' | 'decrement' | null;
 }
 
 const initialState: CounterState = {
-    counters: [{ id: 1, value: 0, isActive: true }],
-    timerMode: null
+	counters: [{ id: 1, isActive: true, value: 0 }],
+	timerMode: null,
 };
 
 export const counterSlice = createSlice({
-    name: 'counter',
-    initialState,
-    reducers: {
-        increment: (state) => {
-            state.counters = state.counters.map(counter =>
-                counter.isActive
-                    ? { ...counter, value: counter.value + 1 }
-                    : counter
-            );
-        },
-        decrement: (state) => {
-            state.counters = state.counters.map(counter =>
-                counter.isActive
-                    ? { ...counter, value: counter.value - 1 }
-                    : counter
-            );
-        },
-        reset: (state) => {
-            state.counters = state.counters.map(counter =>
-                counter.isActive
-                    ? { ...counter, value: 0 }
-                    : counter
-            );
-        },
-        addCounter: (state) => {
-            state.counters = [
-                ...state.counters.map(counter => ({ ...counter, isActive: false })),
-                {
-                    id: state.counters.length + 1,
-                    value: 0,
-                    isActive: true
-                }
-            ];
-            state.timerMode = null;
-        },
-        resetAll: (state) => {
-            state.counters = [{ id: 1, value: 0, isActive: true }];
-            state.timerMode = null;
-        },
-        setTimerMode: (state, action: PayloadAction<'increment' | 'decrement' | null>) => {
-            state.timerMode = action.payload;
-        }
-    }
+	initialState,
+	name: 'counter',
+	reducers: {
+		addCounter: state => {
+			const newId =
+				Math.max(...state.counters.map(counter => counter.id)) + 1;
+			state.counters = [
+				...state.counters.map(counter => ({
+					...counter,
+					isActive: false,
+				})),
+				{
+					id: newId,
+					isActive: true,
+					value: 0,
+				},
+			];
+			state.timerMode = null;
+		},
+		decrement: (state, action: PayloadAction<number>) => {
+			const counter = state.counters.find(c => c.id === action.payload);
+			if (counter) {
+				counter.value -= 1;
+			}
+		},
+		increment: (state, action: PayloadAction<number>) => {
+			const counter = state.counters.find(c => c.id === action.payload);
+			if (counter) {
+				counter.value += 1;
+			}
+		},
+		reset: (state, action: PayloadAction<number>) => {
+			const counter = state.counters.find(c => c.id === action.payload);
+			if (counter) {
+				counter.value = 0;
+			}
+		},
+		resetAll: state => {
+			state.counters = [{ id: 1, isActive: true, value: 0 }];
+			state.timerMode = null;
+		},
+		setTimerMode: (
+			state,
+			action: PayloadAction<'increment' | 'decrement' | null>
+		) => {
+			state.timerMode = action.payload;
+		},
+	},
 });
 
-export const { 
-    increment, 
-    decrement, 
-    reset, 
-    addCounter, 
-    resetAll, 
-    setTimerMode 
+export const {
+	addCounter,
+	decrement,
+	increment,
+	reset,
+	resetAll,
+	setTimerMode,
 } = counterSlice.actions;
 
 export default counterSlice.reducer;
