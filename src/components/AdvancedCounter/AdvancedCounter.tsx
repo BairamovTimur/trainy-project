@@ -15,10 +15,10 @@ import {
 	PlusCircleOutlined,
 	DeleteOutlined,
 	PauseOutlined,
-	RedoOutlined,
 } from '@ant-design/icons';
 
 import { Button } from '../Button/Button';
+import { CounterBaseButtons } from '../CounterBaseButtons/CounterBaseButtons';
 
 import styles from './AdvancedCounter.module.css';
 
@@ -62,32 +62,17 @@ export const AdvancedCounter = () => {
 						</div>
 						{counter.isActive && (
 							<>
-								<div className={styles.buttons}>
-									<Button
-										ariaLabel='Уменьшить значение'
-										onClick={() =>
-											dispatch(decrement(counter.id))
-										}
-									>
-										<MinusOutlined />
-									</Button>
-									<Button
-										ariaLabel='Увеличить значение'
-										onClick={() =>
-											dispatch(increment(counter.id))
-										}
-									>
-										<PlusOutlined />
-									</Button>
-									<Button
-										ariaLabel='Сбросить значение'
-										onClick={() =>
-											dispatch(reset(counter.id))
-										}
-									>
-										<RedoOutlined />
-									</Button>
-								</div>
+								<CounterBaseButtons
+									hideValue
+									onDecrement={() =>
+										dispatch(decrement(counter.id))
+									}
+									onIncrement={() =>
+										dispatch(increment(counter.id))
+									}
+									onReset={() => dispatch(reset(counter.id))}
+									value={counter.value}
+								/>
 								<div className={styles.timerButtons}>
 									<Button
 										ariaLabel='Уменьшать каждые 5 секунд'

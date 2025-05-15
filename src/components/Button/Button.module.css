@@ -18,18 +18,10 @@
 	outline: none;
 }
 
-
-.backButton {
-  margin-top: 32px;
-}
-
 @media (max-width: 700px) {
 	.button {
 		padding: 10px 20px;
 		font-size: 1rem;
 	}
-
-	.backButton {
-		margin-top: 16px;
-	}
+	
 }

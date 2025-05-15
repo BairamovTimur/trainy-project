@@ -5,6 +5,7 @@ import { Button } from '../Button/Button';
 import styles from './CounterBaseButtons.module.css';
 
 interface CounterBaseButtonsProps {
+	hideValue?: boolean;
 	onDecrement: () => void;
 	onIncrement: () => void;
 	onReset: () => void;
@@ -12,6 +13,7 @@ interface CounterBaseButtonsProps {
 }
 
 export const CounterBaseButtons = ({
+	hideValue = false,
 	onDecrement,
 	onIncrement,
 	onReset,
@@ -19,9 +21,11 @@ export const CounterBaseButtons = ({
 }: CounterBaseButtonsProps) => {
 	return (
 		<>
-			<div aria-live='polite' className={styles.value}>
-				{value}
-			</div>
+			{!hideValue && (
+				<div aria-live='polite' className={styles.value}>
+					{value}
+				</div>
+			)}
 			<div className={styles.buttons}>
 				<Button ariaLabel='Уменьшить значение' onClick={onDecrement}>
 					<MinusOutlined />

@@ -1,5 +1,4 @@
-// Константы для генерации имен
-export const firstNames = [
+const firstNames = [
 	'Иван',
 	'Петр',
 	'Сергей',
@@ -11,7 +10,7 @@ export const firstNames = [
 	'Владимир',
 	'Артем',
 ];
-export const lastNames = [
+const lastNames = [
 	'Иванов',
 	'Петров',
 	'Сидоров',
@@ -23,7 +22,7 @@ export const lastNames = [
 	'Новиков',
 	'Морозов',
 ];
-export const middleNames = [
+const middleNames = [
 	'Иванович',
 	'Петрович',
 	'Сергеевич',
@@ -36,12 +35,12 @@ export const middleNames = [
 	'Артемович',
 ];
 
-export interface User {
+interface User {
 	fullName: string;
 	id: number;
 }
 
-export const generateUsers = (): User[] => {
+const generateUsers = (): User[] => {
 	const result: User[] = [];
 	for (let i = 0; i < 1000; i++) {
 		const firstName = firstNames[i % 10];

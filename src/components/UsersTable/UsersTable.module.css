@@ -45,7 +45,7 @@
     background: var(--color-white);
     border-radius: 8px;
     box-shadow: var(--shadow-default);
-    max-height: calc(100vh - 250px);
+    max-height: calc(100vh - 350px);
     overflow-y: auto;
   }
   
@@ -107,6 +107,6 @@
     }
   
     .tableContainer {
-      max-height: calc(100vh - 350px);
+      max-height: calc(100vh - 400px);
     }
   }
