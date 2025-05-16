@@ -1,0 +1,112 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  
+  .countersWrapper {
+    position: sticky;
+    top: 0;
+    background: var(--color-white);
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-default);
+    margin-bottom: 24px;
+    z-index: 10;
+  }
+  
+  .counters {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  
+  .counter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .counterValue {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+  
+  .tableContainer {
+    background: var(--color-white);
+    border-radius: 8px;
+    box-shadow: var(--shadow-default);
+    max-height: calc(100vh - 350px);
+    overflow-y: auto;
+  }
+  
+  .userList {
+    list-style-position: inside;
+    padding: 16px;
+    margin: 0;
+  }
+  
+  .userItem {
+    padding: 12px;
+    border-bottom: 1px solid var(--color-border);
+  }
+  
+  .userItem:last-child {
+    border-bottom: none;
+  }
+  
+  .userLabel {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+  }
+  
+  .checkbox {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+  }
+  
+  .userName {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+  }
+  
+  @media (max-width: 700px) {
+    .container {
+      padding: 8px;
+    }
+  
+    .countersWrapper {
+      padding: 12px;
+    }
+  
+    .counters {
+      flex-direction: column;
+      gap: 12px;
+    }
+  
+    .counter {
+      flex-direction: row;
+      justify-content: space-between;
+      width: 100%;
+    }
+  
+    .counterValue {
+      font-size: 1.25rem;
+    }
+  
+    .tableContainer {
+      max-height: calc(100vh - 400px);
+    }
+  }

@@ -1,7 +1,14 @@
+import { BackButton } from '@/components/BackButton/BackButton';
+
+import { UsersTable } from '../../components/UsersTable/UsersTable';
+
 import styles from './TablePage.module.css';
 
-export const TablePage = () => (
-	<div className={styles.container}>
-		<h1>Таблица</h1>
-	</div>
-);
+export const TablePage = () => {
+	return (
+		<div className={styles.container}>
+			<UsersTable />
+			<BackButton />
+		</div>
+	);
+};

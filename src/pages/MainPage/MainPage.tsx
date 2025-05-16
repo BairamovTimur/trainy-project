@@ -23,16 +23,16 @@ const blocks = [
 		to: ROUTES.ADVANCED_COUNTER.MAIN,
 	},
 	{
-		ariaLabel: 'Перейти на страницу Список сотрудников',
-		icon: <TeamOutlined aria-hidden='true' className={styles.icon} />,
-		title: 'Список сотрудников',
-		to: ROUTES.EMPLOYEES.MAIN,
+		ariaLabel: 'Перейти на страницу Cписок пользователей',
+		icon: <TableOutlined aria-hidden='true' className={styles.icon} />,
+		title: 'Cписок пользователей',
+		to: ROUTES.TABLE.MAIN,
 	},
 	{
-		ariaLabel: 'Перейти на страницу Таблица',
-		icon: <TableOutlined aria-hidden='true' className={styles.icon} />,
-		title: 'Таблица',
-		to: ROUTES.TABLE.MAIN,
+		ariaLabel: 'Перейти на страницу Продвинутый список пользователей',
+		icon: <TeamOutlined aria-hidden='true' className={styles.icon} />,
+		title: 'Продвинутый список пользователей',
+		to: ROUTES.EMPLOYEES.MAIN,
 	},
 ];
 
