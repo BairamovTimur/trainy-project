@@ -1,19 +1,18 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { decrement, increment, testValue } from '@/store/test';
-
 import styles from './styles.module.css';
 
-export const MainPage = () => {
-	const dispatch = useDispatch();
-	const value = useSelector(testValue);
+import { NavigationLink } from '@/shared/components/NavigationLink/NavigationLink';
 
+import { UnorderedListOutlined, TableOutlined, DashboardOutlined, CopyrightOutlined } from '@ant-design/icons'
+
+export const MainPage = () => {
 	return (
 		<div className={styles.container}>
 			<h1>MainPage</h1>
-			<div>
-				<h2>Value: {value}</h2>
-				<button onClick={() => dispatch(increment())}>Increment</button>
-				<button onClick={() => dispatch(decrement())}>Decrement</button>
+			<div className={styles.grid}>
+				<NavigationLink title="Счетчик" to="/counter" icon={<CopyrightOutlined />} />
+				<NavigationLink title="Продвинутый счетчик" to="/advanced-counter" icon={<DashboardOutlined />} />
+				<NavigationLink title="Список сотрудников" to="/user-list" icon={<UnorderedListOutlined />} />	
+				<NavigationLink title="Таблица" to="/table" icon={<TableOutlined />} />	
 			</div>
 		</div>
 	);
