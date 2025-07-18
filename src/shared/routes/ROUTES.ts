@@ -1,17 +1,25 @@
+export const ROOT_ROUTES = {
+	MAIN: '/',
+	COUNTER: '/counter',
+	ADVANCED_COUNTER: '/advanced-counter',
+	USER_LIST: '/user-list',
+	TABLE: '/table'
+} as const;
+
 export const ROUTES = {
-	ADVANCED_COUNTER: {
-		MAIN: '/advanced-counter',
+	MAIN: {
+		MAIN: ROOT_ROUTES.MAIN,
 	},
 	COUNTER: {
-		MAIN: '/counter',
+		MAIN: ROOT_ROUTES.COUNTER,
 	},
-	MAIN: {
-		MAIN: '/',
-	},
-	TABLE: {
-		MAIN: '/table',
+	ADVANCED_COUNTER: {
+		MAIN: ROOT_ROUTES.ADVANCED_COUNTER,
 	},
 	USER_LIST: {
-		MAIN: '/user-list',
+		MAIN: ROOT_ROUTES.USER_LIST,
 	},
+	TABLE: {
+		MAIN: ROOT_ROUTES.TABLE,
+	}
 } as const;
