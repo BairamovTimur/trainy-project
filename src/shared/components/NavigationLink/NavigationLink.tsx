@@ -1,22 +1,23 @@
-import { Link } from 'react-router';
-
-import styles from './styles.module.css';
+import { Link } from "react-router"
+import styles from "./styles.module.css"
 
 interface NavigationLinkProps {
-	icon: React.ReactNode;
-	title: string;
-	to: string;
+    title: string
+    to: string
+    icon: React.ReactNode
 }
 
-export const NavigationLink = ({ icon, title, to }: NavigationLinkProps) => {
-	return (
-		<Link className={styles.navigationLink} to={to}>
-			<div className={styles.content}>
-				<h1>{title}</h1>
-				<div className={styles.icon}>
-					{icon} {to}
-				</div>
-			</div>
-		</Link>
-	);
-};
+export const NavigationLink = ({title, to, icon}: NavigationLinkProps) => {
+    return(
+        <Link to={to} className={styles.navigationLink}>
+            <div className={styles.content}>
+                <h1>
+                    {title}
+                </h1>
+                <div className={styles.icon}>
+                    {icon} {to}
+                </div>
+            </div>
+        </Link> 
+    )
+}

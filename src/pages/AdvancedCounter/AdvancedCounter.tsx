@@ -1,9 +1,9 @@
-import styles from './styles.module.css';
+import styles from './styles.module.css'
 
 export const AdvancedCounter = () => {
-	return (
-		<div className={styles.container}>
-			<h1>Продвинутый счётчик</h1>
-		</div>
-	);
-};
+    return(
+        <div className={styles.container}>
+            <h1>AdvancedCounter</h1>
+        </div>
+    )
+}
