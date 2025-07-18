@@ -7,7 +7,7 @@ import {
 } from '@ant-design/icons';
 
 import styles from './styles.module.css';
-
+// коммент для PR
 export const MainPage = () => {
 	return (
 		<div className={styles.container}>
