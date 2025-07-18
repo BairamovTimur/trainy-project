@@ -11,7 +11,7 @@ import styles from './styles.module.css';
 export const MainPage = () => {
 	return (
 		<div className={styles.container}>
-			<h1>Главная страница</h1>
+			<h1 className={styles.title}>Главная страница</h1>
 			<div className={styles.grid}>
 				<NavigationLink
 					icon={<CopyrightOutlined />}
