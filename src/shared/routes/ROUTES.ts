@@ -1,9 +1,17 @@
-export const ROOT_ROUTES = {
-	MAIN: '/',
-} as const;
-
 export const ROUTES = {
+	ADVANCED_COUNTER: {
+		MAIN: '/advanced-counter',
+	},
+	COUNTER: {
+		MAIN: '/counter',
+	},
 	MAIN: {
-		MAIN: ROOT_ROUTES.MAIN,
+		MAIN: '/',
+	},
+	TABLE: {
+		MAIN: '/table',
+	},
+	USER_LIST: {
+		MAIN: '/user-list',
 	},
 } as const;
