@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { Button } from '@/shared/ui/Button/Button';
 import { decrement, increment, testValue } from '@/store/test';
 
 import styles from './styles.module.css';
@@ -9,11 +10,13 @@ export const Counter = () => {
 
 	return (
 		<div className={styles.container}>
-			<h1>Счётчик</h1>
+			<div className={styles.title}>Счётчик</div>
 			<div>
-				<h2>Value: {value}</h2>
-				<button onClick={() => dispatch(increment())}>Increment</button>
-				<button onClick={() => dispatch(decrement())}>Decrement</button>
+				<p>Value: {value}</p>
+				<div>
+					<Button onClick={() => dispatch(decrement())}>-</Button>
+					<Button onClick={() => dispatch(increment())}>+</Button>
+				</div>
 			</div>
 		</div>
 	);

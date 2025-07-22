@@ -12,7 +12,7 @@ export const NavigationLink = ({ icon, title, to }: NavigationLinkProps) => {
 	return (
 		<Link className={styles.navigationLink} to={to}>
 			<div className={styles.content}>
-				<h1>{title}</h1>
+				<p>{title}</p>
 				<div className={styles.icon}>
 					{icon} {to}
 				</div>
